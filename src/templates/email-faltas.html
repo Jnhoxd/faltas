@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificação de Faltas - SENAC</title>
+    <!--[if mso]>
+    <style type="text/css">
+        body, table, td {font-family: Arial, sans-serif !important;}
+    </style>
+    <![endif]-->
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: 'Segoe UI', Arial, sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f4f4f4; padding: 20px 0;">
+        <tr>
+            <td align="center">
+                <!-- Container Principal -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff;">
+
+                    <!-- Header com cor sólida -->
+                    <tr>
+                        <td style="background-color: #1E3A8A; padding: 40px 30px; text-align: center;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <p style="color: #ffffff; font-size: 40px; margin: 0 0 15px 0;">⚠️</p>
+                                        <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700; line-height: 1.3;">
+                                            Notificação de Faltas
+                                        </h1>
+                                        <p style="color: #ffffff; margin: 10px 0 0; font-size: 16px;">
+                                            Sistema de Controle de Alunos SENAC
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Corpo do Email -->
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <!-- Saudação -->
+                            <p style="color: #1f2937; font-size: 16px; line-height: 1.6; margin: 0 0 20px;">
+                                Prezado(a) <strong style="color: #1E3A8A;">{{to_name}}</strong>,
+                            </p>
+
+                            <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin: 0 0 20px;">
+                                Espero que esta mensagem encontre você bem.
+                            </p>
+
+                            <!-- Box de Destaque - Informação das Faltas -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #FEF3C7; border-left: 4px solid #F59E0B; margin: 25px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <p style="color: #92400E; font-size: 15px; line-height: 1.6; margin: 0;">
+                                            Notamos que você acumula <strong style="color: #B45309;">{{message}}</strong> faltas nas atividades do(a) <strong>{{curso}}</strong> - <strong>{{turma}}</strong>.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin: 0 0 20px;">
+                                Sua presença é fundamental para nós, e sentimos muito a sua ausência. Queremos reforçar nosso compromisso em oferecer o suporte necessário para que sua jornada de aprendizado seja a melhor possível.
+                            </p>
+
+                            <!-- Box de Apoio -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #EFF6FF; margin: 25px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <p style="color: #1E40AF; font-size: 15px; line-height: 1.6; margin: 0;">
+                                            💙 Se houver algum fator dificultando sua participação — seja dúvida, desafio ou qualquer outra questão — <strong>conte conosco</strong>. Estamos aqui para ajudar e buscar soluções juntos.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Nota para Aprendizagem -->
+                            <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin: 25px 0 20px; font-style: italic; padding: 15px; background-color: #F9FAFB;">
+                                <strong>Nota:</strong> Se você for aluno(a) da Aprendizagem, desconsidere o próximo trecho.
+                            </p>
+
+                            <!-- Seção de Desistência -->
+                            <div style="border-top: 2px solid #E5E7EB; margin: 30px 0; padding-top: 25px;">
+                                <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin: 0 0 15px;">
+                                    Sabemos que imprevistos acontecem. Caso decida não continuar no curso, pedimos que formalize sua desistência enviando um e-mail com as informações abaixo:
+                                </p>
+
+                                <!-- Lista de Informações -->
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                    <tr>
+                                        <td style="padding: 8px 0;">
+                                            <span style="color: #1E3A8A; font-size: 18px; margin-right: 10px;">•</span>
+                                            <span style="color: #374151; font-size: 15px;">Nome completo</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 8px 0;">
+                                            <span style="color: #1E3A8A; font-size: 18px; margin-right: 10px;">•</span>
+                                            <span style="color: #374151; font-size: 15px;">CPF</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 8px 0;">
+                                            <span style="color: #1E3A8A; font-size: 18px; margin-right: 10px;">•</span>
+                                            <span style="color: #374151; font-size: 15px;">Curso</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 8px 0;">
+                                            <span style="color: #1E3A8A; font-size: 18px; margin-right: 10px;">•</span>
+                                            <span style="color: #374151; font-size: 15px;">Motivo da desistência</span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <!-- Box de Atenção -->
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #FEE2E2; border-left: 4px solid #DC2626; margin: 25px 0;">
+                                    <tr>
+                                        <td style="padding: 20px;">
+                                            <p style="color: #991B1B; font-size: 16px; font-weight: 700; margin: 0 0 15px;">
+                                                ⚠️ Atenção:
+                                            </p>
+                                            <p style="color: #7F1D1D; font-size: 14px; line-height: 1.6; margin: 0 0 12px;">
+                                                <strong>•</strong> Se sua ausência não for justificada em até <strong>72 horas</strong>, sua desistência será formalizada automaticamente.
+                                            </p>
+                                            <p style="color: #7F1D1D; font-size: 14px; line-height: 1.6; margin: 0;">
+                                                <strong>•</strong> Alunos do <strong>Programa de Gratuidade (PSG)</strong> devem obrigatoriamente justificar a desistência para evitar sanções. A ausência de justificativa resultará na necessidade de aguardar <strong>6 meses</strong> para se candidatar a uma nova vaga no programa.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Contato -->
+                            <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin: 25px 0 20px;">
+                                Estamos à disposição para esclarecer dúvidas ou fornecer mais informações. Entre em contato conosco pelo e-mail ou telefone disponível.
+                            </p>
+
+                            <!-- Mensagem Final -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #F0F9FF; margin: 25px 0;">
+                                <tr>
+                                    <td style="padding: 20px; text-align: center;">
+                                        <p style="color: #1E40AF; font-size: 16px; line-height: 1.6; margin: 0; font-weight: 600;">
+                                            Sua participação é muito importante para nós, e esperamos contar com seu retorno em breve.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Assinatura -->
+                            <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin: 30px 0 10px;">
+                                Atenciosamente,
+                            </p>
+                            <p style="color: #1E3A8A; font-size: 16px; font-weight: 700; margin: 0;">
+                                Equipe SENAC
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #F9FAFB; padding: 30px; text-align: center; border-top: 1px solid #E5E7EB;">
+                            <p style="color: #6b7280; font-size: 13px; line-height: 1.6; margin: 0 0 10px;">
+                                Este é um e-mail automático do Sistema de Controle de Alunos SENAC
+                            </p>
+                            <p style="color: #9ca3af; font-size: 12px; line-height: 1.5; margin: 0;">
+                                © 2025 SENAC. Todos os direitos reservados.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- Fim do Container Principal -->
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
