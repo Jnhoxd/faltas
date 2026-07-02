@@ -41,15 +41,17 @@ export const teamsService = {
 
     const label = notificationType || 'Notificação';
     const isReminder = String(label).toLowerCase().includes('lembrete');
+    const className = normalizeLabelValue(student.classNumber);
+    const courseName = normalizeLabelValue(student.courseName);
 
     const body = {
       text: isReminder
-        ? `Nova notificação — Lembrete: já se passaram mais de 72 horas desde a última notificação do tipo ${label} para o(a) aluno(a) ${student.name}. Turma: ${student.classNumber || 'não informado'}. Curso: ${student.courseName || 'não informado'}. Enviada por: ${sender.name || sender.email || 'não informado'}`
+        ? `Nova notificação — Lembrete: já se passaram mais de 72 horas desde a última notificação do tipo ${label} para o(a) aluno(a) ${student.name}. Turma: ${className}. Curso: ${courseName}. Enviada por: ${sender.name || sender.email || 'não informado'}`
         : [
             'Nova notificação:',
             `Foi encaminhada uma notificação de ${label} para o(a) aluno(a): ${student.name}.`,
-            `Turma: ${student.classNumber || 'não informado'}.`,
-            `Curso: ${student.courseName || 'não informado'}.`,
+            `Turma: ${className}.`,
+            `Curso: ${courseName}.`,
             '',
             `Enviada por: ${sender.name || sender.email || 'não informado'}`
           ].join('\n')
