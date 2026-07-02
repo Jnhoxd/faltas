@@ -89,7 +89,7 @@ exports.handler = async function (event) {
 No painel do Netlify, crie uma variável de ambiente:
 
 - `Key`: `TEAMS_WEBHOOK_URL`
-- `Value`: `https://webhookbot.c-toss.com/api/bot/webhooks/767e9ccc-e7de-49cb-a87a-d3af5a251809`
+- `Value`: `<YOUR_TEAMS_WEBHOOK_URL>`
 
 Use a opção `Production`.
 
