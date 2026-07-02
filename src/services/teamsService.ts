@@ -13,6 +13,11 @@ const TEAMS_NOTIFY_ENDPOINT = (import.meta.env.VITE_TEAMS_NOTIFY_ENDPOINT as str
 const TEAM_WEBHOOK_CONFIGURED = Boolean(import.meta.env.VITE_TEAMS_WEBHOOK_URL);
 const TEAMS_ENDPOINT_CONFIGURED = Boolean(import.meta.env.VITE_TEAMS_NOTIFY_ENDPOINT) || Boolean(TEAMS_NOTIFY_ENDPOINT);
 
+const normalizeLabelValue = (value: string | undefined): string => {
+  const text = String(value || '').trim();
+  return text.replace(/^(Turma:|Curso:)\s*/i, '').trim() || 'não informado';
+};
+
 if (!TEAM_WEBHOOK_CONFIGURED && !TEAMS_ENDPOINT_CONFIGURED) {
   console.warn('Teams endpoint is not configured. Notifications will not be sent.');
 }
@@ -41,10 +46,10 @@ export const teamsService = {
       text: isReminder
         ? `Nova notificação — Lembrete: já se passaram mais de 72 horas desde a última notificação do tipo ${label} para o(a) aluno(a) ${student.name}. Turma: ${student.classNumber || 'não informado'}. Curso: ${student.courseName || 'não informado'}. Enviada por: ${sender.name || sender.email || 'não informado'}`
         : [
-            'Nova notificação',
-            `Foi encaminhada uma notificação de ${label} para o(a) aluno(a): ${student.name}`,
-            `Turma: ${student.classNumber || 'não informado'}`,
-            `Curso: ${student.courseName || 'não informado'}`,
+            'Nova notificação:',
+            `Foi encaminhada uma notificação de ${label} para o(a) aluno(a): ${student.name}.`,
+            `Turma: ${student.classNumber || 'não informado'}.`,
+            `Curso: ${student.courseName || 'não informado'}.`,
             '',
             `Enviada por: ${sender.name || sender.email || 'não informado'}`
           ].join('\n')
@@ -95,13 +100,15 @@ export const teamsService = {
     const actionText = status === 'evaded' ? 'evadiu' : 'desistiu';
     const title = `⚠️ **ATENÇÃO - ${status === 'evaded' ? 'EVASÃO' : 'DESISTÊNCIA'}**`;
 
+    const className = normalizeLabelValue(student.classNumber);
+    const courseName = normalizeLabelValue(student.courseName);
+
     const body = {
       text: [
         title,
+        'Prezada equipe da secretaria,',
         '',
-        `**Prezada equipe da secretaria,**`,
-        '',
-        `O(a) aluno(a): **${student.name}** da turma: **${student.classNumber || 'não informado'}** do curso: **${student.courseName || 'não informado'}**, ${actionText}.`,
+        `O(a) aluno(a): **${student.name}** da turma: **${className}** do curso: **${courseName}**, ${actionText}.`,
         `Motivo: ${reason || 'Motivo não informado'}`,
         '',
         `Gentileza realizar os procedimentos necessários.`
